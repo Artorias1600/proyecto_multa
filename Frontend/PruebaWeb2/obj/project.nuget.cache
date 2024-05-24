@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "DvWa/jBjW0BJe16cdX1mtWsFdztByfn7+IqvdsCx1qaw6EiM2coqJ+7Gpm6PoDZA3+yp5dnhOQeoJTdi4Uawew==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Gerardo\\Desktop\\U\\año2\\progra1\\PruebaWeb2\\PruebaWeb2\\PruebaWeb2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gerardo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Gerardo\\.nuget\\packages\\restsharp\\111.0.0\\restsharp.111.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

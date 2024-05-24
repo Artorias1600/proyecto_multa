@@ -1,0 +1,17 @@
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\infraccionAPI.exe
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\appsettings.Development.json
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\appsettings.json
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\infraccionAPI.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\infraccionAPI.runtimeconfig.json
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\infraccionAPI.pdb
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\MySqlConnector.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Gerardo\Desktop\U\año2\progra1\infraccionAPI\obj\Release\net7.0\PubTmp\Out\infraccionAPI.deps.json
