@@ -1,0 +1,155 @@
+﻿@model List<PruebaWeb2.Models.Pago>
+
+@{
+    ViewData["Title"] = "CRUD Pagos";
+}
+
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-warning card-outline">
+                    <div class="card-header">
+                        <h3 class="">
+                            CRUD Pagos
+                        </h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 ml-3" style="text-align: left">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AgregarModal">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="PagoTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>PagoID</th>
+                                    <th>InfraccionID</th>
+                                    <th>Fecha de Pago</th>
+                                    <th>Monto Pagado</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var pago in Model)
+                                {
+                                    <tr>
+                                        <td>@pago.PagoID</td>
+                                        <td>@pago.InfraccionID</td>
+                                        <td>@pago.FechaPago</td>
+                                        <td>@pago.MontoPagado</td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" onclick="eliminarPago(@pago.PagoID)">
+                                                ELIMINAR
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="AgregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Pago</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="AgregarPago" asp-controller="Pago" method="post">
+                <div class="modal-body">
+                    <div class="mt-1">
+                        @Html.Label("InfraccionID")
+                        @Html.TextBox("InfraccionID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("Fecha de Pago")
+                        @Html.TextBox("FechaPago", null, new { @class = "form-control", @type = "date" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("Monto Pagado")
+                        @Html.TextBox("MontoPagado", null, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Pago</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="UpdatePago" asp-controller="Pago" method="post">
+                <div class="modal-body">
+                    <div class="mt-1">
+                        @Html.TextBox("PagoID", null, new { @readonly = "readonly", @hidden = "true" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("InfraccionID")
+                        @Html.TextBox("InfraccionID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("Fecha de Pago")
+                        @Html.TextBox("FechaPago", null, new { @class = "form-control", @type = "date" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("Monto Pagado")
+                        @Html.TextBox("MontoPagado", null, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        var table = $('#PagoTable').DataTable();
+
+        $('#PagoTable tbody').on('click', 'tr', function () {
+            var Data = table.row(this).data();
+            EditarPago(Data);
+        });
+
+        $('#PagoTable tbody').on('click', 'tr td:last-child', function (event) {
+            event.stopPropagation();
+        });
+
+        function EditarPago(Data) {
+            $('#PagoID').val(Data[0]);
+            $('#InfraccionID').val(Data[1]);
+            $('#FechaPago').val(Data[2]);
+            $('#MontoPagado').val(Data[3]);
+            $('#EditarModal').modal('show');
+        }
+
+        function eliminarPago(pagoId) {
+            $.ajax({
+                url: '/Pago/EliminarPago',
+                type: 'POST',
+                data: { id: pagoId },
+                success: function () {
+                    location.reload();
+                }
+            });
+        }
+    </script>
+}

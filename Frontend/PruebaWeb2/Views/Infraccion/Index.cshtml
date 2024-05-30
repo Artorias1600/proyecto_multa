@@ -1,0 +1,177 @@
+﻿@model List<PruebaWeb2.Models.Infraccion>
+
+@{
+    ViewData["Title"] = "CRUD Infracciones";
+}
+
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-warning card-outline">
+                    <div class="card-header">
+                        <h3 class="">
+                            CRUD Infracciones
+                        </h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 ml-3" style="text-align: left">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AgregarModal">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="InfraccionTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>InfraccionID</th>
+                                    <th>VehiculoID</th>
+                                    <th>ConductorID</th>
+                                    <th>SancionID</th>
+                                    <th>AgenteID</th>
+                                    <th>Fecha</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var infraccion in Model)
+                                {
+                                    <tr>
+                                        <td>@infraccion.InfraccionID</td>
+                                        <td>@infraccion.VehiculoID</td>
+                                        <td>@infraccion.ConductorID</td>
+                                        <td>@infraccion.SancionID</td>
+                                        <td>@infraccion.AgenteID</td>
+                                        <td>@infraccion.Fecha.ToString("yyyy-MM-dd")</td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" onclick="eliminarInfraccion(@infraccion.InfraccionID)">
+                                                ELIMINAR
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="AgregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Infracción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="AgregarInfraccion" asp-controller="Infraccion" method="post">
+                <div class="modal-body">
+                    <div class="mt-1">
+                        @Html.Label("VehiculoID")
+                        @Html.TextBox("VehiculoID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("ConductorID")
+                        @Html.TextBox("ConductorID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("SancionID")
+                        @Html.TextBox("SancionID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("AgenteID")
+                        @Html.TextBox("AgenteID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("Fecha")
+                        @Html.TextBox("Fecha", null, new { @class = "form-control", @type = "date" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EditarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Infracción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="UpdateInfraccion" asp-controller="Infraccion" method="post">
+                <div class="modal-body">
+                    <div class="mt-1">
+                        @Html.Hidden("InfraccionID")
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("VehiculoID")
+                        @Html.TextBox("VehiculoID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("ConductorID")
+                        @Html.TextBox("ConductorID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("SancionID")
+                        @Html.TextBox("SancionID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("AgenteID")
+                        @Html.TextBox("AgenteID", null, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-1">
+                        @Html.Label("Fecha")
+                        @Html.TextBox("Fecha", null, new { @class = "form-control", @type = "date" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        var table = $('#InfraccionTable').DataTable();
+
+        $('#InfraccionTable tbody').on('click', 'tr', function () {
+            var Data = table.row(this).data();
+            EditarInfraccion(Data);
+        });
+
+        $('#InfraccionTable tbody').on('click', 'tr td:last-child', function (event) {
+            event.stopPropagation();
+        });
+
+        function EditarInfraccion(Data) {
+            $('#InfraccionID').val(Data[0]);
+            $('#VehiculoID').val(Data[1]);
+            $('#ConductorID').val(Data[2]);
+            $('#SancionID').val(Data[3]);
+            $('#AgenteID').val(Data[4]);
+            $('#Fecha').val(Data[5]);
+            $('#EditarModal').modal('show');
+        }
+
+        function eliminarInfraccion(infraccionId) {
+            $.ajax({
+                url: '/Infraccion/EliminarInfraccion',
+                type: 'POST',
+                data: { id: infraccionId },
+                success: function () {
+                    location.reload();
+                }
+            });
+        }
+    </script>
+}

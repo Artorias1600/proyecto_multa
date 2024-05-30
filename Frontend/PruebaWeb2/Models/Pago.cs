@@ -7,6 +7,6 @@
         public DateTime FechaPago { get; set; }
         public decimal MontoPagado { get; set; }
 
-        public Infraccion Infraccion { get; set; }
+        //public Infraccion Infraccion { get; set; }
     }
 }

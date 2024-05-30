@@ -34,8 +34,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gerardo/Desktop/U/año2/progra1/PruebaWeb2/PruebaWeb2/Views/Infracciones/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mcmFjY2lvbmVzXEluZGV4LmNzaHRtbA==
+[C:/Users/Gerardo/Desktop/U/año2/progra1/PruebaWeb2/PruebaWeb2/Views/Infraccion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mcmFjY2lvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gerardo/Desktop/U/año2/progra1/PruebaWeb2/PruebaWeb2/Views/Pago/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Gerardo/Desktop/U/año2/progra1/PruebaWeb2/PruebaWeb2/Views/Sancion/Index.cshtml]
